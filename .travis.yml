@@ -6,7 +6,7 @@ compiler:
     - gcc
 
 before_install:
-    - export NIGHTLY_HASH=`git ls-remote git://github.com/Embroidermodder/Embroidermodder.git | grep refs/heads/master | cut -f 1`
+    - export NIGHTLY_HASH=`git ls-remote git://github.com/tmhorne/Embroidermodder.git | grep refs/heads/master | cut -f 1`
     - sudo apt-get update -qq
 
 install:
@@ -26,24 +26,24 @@ script:
     # linux64
     - PLATFORM=linux64
     - cd ~
-    - git clone https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/Embroidermodder/travis-${PLATFORM}.git
+    - git clone https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/tmhorne/travis-${PLATFORM}.git
     - cd travis-${PLATFORM}
     - git remote rm origin
-    - git remote add origin https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/Embroidermodder/travis-${PLATFORM}.git
+    - git remote add origin https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/tmhorne/travis-${PLATFORM}.git
     - git fetch origin
     - git checkout master
-    - git commit --allow-empty -m "https://github.com/Embroidermodder/Embroidermodder/commit/${NIGHTLY_HASH}"
+    - git commit --allow-empty -m "https://github.com/tmhorne/Embroidermodder/commit/${NIGHTLY_HASH}"
     - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git push origin master &>/dev/null || echo "" '
     # osx64
     - PLATFORM=osx64
     - cd ~
-    - git clone https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/Embroidermodder/travis-${PLATFORM}.git
+    - git clone https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/tmhorne/travis-${PLATFORM}.git
     - cd travis-${PLATFORM}
     - git remote rm origin
-    - git remote add origin https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/Embroidermodder/travis-${PLATFORM}.git
+    - git remote add origin https://Embroidermodder-Travis:${NIGHTLY_TOKEN}@github.com/tmhorne/travis-${PLATFORM}.git
     - git fetch origin
     - git checkout master
-    - git commit --allow-empty -m "https://github.com/Embroidermodder/Embroidermodder/commit/${NIGHTLY_HASH}"
+    - git commit --allow-empty -m "https://github.com/tmhorne/Embroidermodder/commit/${NIGHTLY_HASH}"
     - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git push origin master &>/dev/null || echo "" '
 
 env:
