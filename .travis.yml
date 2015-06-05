@@ -52,7 +52,7 @@ env:
 
 notifications:
   recipients:
-    - embroidermodder@gmail.com
+    - tmhorne@gmail.com
   email:
     on_success: change
     on_failure: always
